@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARGANDA S.T.S — Creative Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFE500;
+    --black: #0A0A0A;
+    --white: #F5F0E8;
+    --pink: #FF2D78;
+    --blue: #4A6CF7;
+    --green: #00FF87;
+    --orange: #FF6B35;
+    --dark-bg: #1A1A1A;
+    --border: #0A0A0A;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--black);
+    background: var(--white);
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 24px);
+    letter-spacing: 1px;
+    padding: 0 clamp(16px, 3vw, 32px);
+    border-right: 2px solid var(--black);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.5vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+    padding: 0 clamp(12px, 2vw, 24px);
+    border-right: 2px solid var(--black);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    background: var(--yellow);
+  }
+
+  .nav-cta {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.3vw, 11px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    padding: 0 clamp(12px, 2vw, 24px);
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .nav-cta:hover { background: #333; }
+
+  /* Mobile hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0 16px;
+    height: 100%;
+    justify-content: center;
+    border-left: 2px solid var(--black);
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    z-index: 99;
+    flex-direction: column;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu .nav-link {
+    border-right: none;
+    border-bottom: 1px solid var(--black);
+    height: 48px;
+    font-size: 13px;
+  }
+
+  .mobile-menu .nav-cta {
+    margin: 0;
+    height: 48px;
+    border-top: 2px solid var(--black);
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 20s linear infinite;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2.5vw, 18px);
+    letter-spacing: 3px;
+    gap: 60px;
+  }
+
+  .ticker-inner span { color: var(--yellow); }
+  .ticker-inner .dot { color: #555; }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== SECTION UTILS ===== */
+  .section-pad { padding: clamp(48px, 8vw, 96px) clamp(16px, 5vw, 60px); }
+  .section-pad-sm { padding: clamp(32px, 5vw, 64px) clamp(16px, 5vw, 60px); }
+
+  .tag-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1.5px solid var(--black);
+    padding: 3px 8px;
+    margin-bottom: 12px;
+  }
+
+  .tag-label.pink { background: var(--pink); color: #fff; border-color: var(--pink); }
+  .tag-label.yellow { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+
+  /* ===== HOME PAGE ===== */
+  .home-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 56px);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .home-hero-left {
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 60px);
+    border-right: 2px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 9vw, 110px);
+    line-height: 0.9;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title .accent { color: var(--blue); }
+
+  .hero-desc {
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.7;
+    max-width: 380px;
+    margin-bottom: 32px;
+    color: #444;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.3vw, 13px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: var(--yellow);
+    color: var(--black);
+    border: 2.5px solid var(--black);
+    padding: 14px 28px;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 var(--black);
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 2px 2px 0 var(--black);
+    transform: translate(2px, 2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.3vw, 13px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: transparent;
+    color: var(--black);
+    border: 2.5px solid var(--black);
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+  .home-hero-right {
+    background: #EBEBDE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(24px, 4vw, 48px);
+  }
+
+  .photo-wrapper {
+    position: relative;
+    width: clamp(220px, 35vw, 400px);
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--black);
+    border: 3px solid var(--black);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 8px 8px 0 var(--blue), 12px 12px 0 var(--pink);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    display: block;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 80px);
+    color: #444;
+    letter-spacing: 4px;
+  }
+
+  .photo-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--yellow);
+    border: 2.5px solid var(--black);
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.2vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .stat-cell {
+    padding: clamp(20px, 4vw, 40px) clamp(16px, 3vw, 40px);
+    border-right: 2px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-cell:last-child { border-right: none; }
+
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--black);
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .stat-icon.yellow-bg { background: var(--yellow); }
+  .stat-icon.black-bg { background: var(--black); }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 60px);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.2vw, 11px);
+    letter-spacing: 2px;
+    color: #666;
+  }
+
+  /* Selected Projects */
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: clamp(24px, 4vw, 48px);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .view-all-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    color: var(--black);
+    cursor: pointer;
+    white-space: nowrap;
+    padding-top: 8px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 2px solid var(--black);
+  }
+
+  .project-card-home {
+    border: 1px solid var(--black);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .project-card-home:hover { transform: scale(0.99); }
+
+  .project-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--black);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    transition: filter 0.3s;
+  }
+
+  .project-card-home:hover .project-img img { filter: grayscale(0%); }
+
+  .project-img-placeholder {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 4vw, 40px);
+    color: #333;
+    letter-spacing: 2px;
+  }
+
+  .project-info {
+    padding: clamp(12px, 2vw, 20px);
+    border-top: 2px solid var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project-cat-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 7px;
+    border: 1.5px solid var(--black);
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+
+  .project-cat-tag.green { background: var(--green); border-color: var(--green); }
+  .project-cat-tag.pink { background: var(--pink); color: #fff; border-color: var(--pink); }
+  .project-cat-tag.blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .project-cat-tag.orange { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 28px);
+    letter-spacing: 1px;
+  }
+
+  .project-arrow {
+    width: clamp(36px, 5vw, 48px);
+    height: clamp(36px, 5vw, 48px);
+    background: var(--yellow);
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(16px, 2vw, 20px);
+    flex-shrink: 0;
+  }
+
+  /* CTA Banner */
+  .cta-banner {
+    background: var(--yellow);
+    padding: clamp(48px, 8vw, 96px) clamp(16px, 5vw, 60px);
+    text-align: center;
+    border-top: 2px solid var(--black);
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 100px);
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+  }
+
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* Footer */
+  footer {
+    background: var(--black);
+    color: var(--yellow);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: clamp(16px, 2vw, 24px) clamp(16px, 4vw, 48px);
+    gap: 24px;
+    border-top: 2px solid var(--black);
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.5vw, 22px);
+    letter-spacing: 1px;
+    color: var(--yellow);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: clamp(16px, 3vw, 32px);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.2vw, 11px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1vw, 10px);
+    color: #555;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* ===== WORK PAGE ===== */
+  .work-hero {
+    padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 60px) 0;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 10vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  .page-desc {
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.7;
+    max-width: 500px;
+    color: #444;
+    border-left: 3px solid var(--black);
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.3vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px clamp(16px, 2.5vw, 28px);
+    border: 2px solid var(--black);
+    margin-right: -2px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.15s;
+  }
+
+  .filter-tab.active, .filter-tab:hover { background: var(--yellow); }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-left: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+  }
+
+  .work-card {
+    border: 1px solid var(--black);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .work-card:hover { transform: scale(0.99); }
+
+  .work-card .project-img { aspect-ratio: 4/3; }
+
+  .work-card-info {
+    padding: clamp(12px, 2vw, 20px);
+    border-top: 2px solid var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 60px);
+    border-top: 2px solid var(--black);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 2px solid var(--black);
+    margin-top: 32px;
+  }
+
+  .testimonial-card {
+    padding: clamp(20px, 3vw, 32px);
+    border-right: 2px solid var(--black);
+  }
+
+  .testimonial-card:last-child { border-right: none; }
+
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: #ccc;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-text {
+    font-style: italic;
+    font-size: clamp(12px, 1.4vw, 14px);
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .testimonial-role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  /* Marquee Available */
+  .available-marquee {
+    background: var(--black);
+    padding: 14px 0;
+    overflow: hidden;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    animation: ticker 15s linear infinite;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2.5vw, 18px);
+    letter-spacing: 3px;
+    color: var(--yellow);
+    gap: 48px;
+    white-space: nowrap;
+  }
+
+  /* ===== SERVICES PAGE ===== */
+  .services-hero {
+    padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 60px);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .services-subtitle {
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.7;
+    max-width: 460px;
+    color: #444;
+    margin-top: 16px;
+  }
+
+  .services-title-highlight {
+    background: var(--green);
+    padding: 0 8px;
+    display: inline-block;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-left: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+  }
+
+  .service-card {
+    border: 1px solid var(--black);
+    padding: clamp(20px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.15s;
+  }
+
+  .service-card:hover { background: #F0EBE0; }
+
+  .service-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .service-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 3px 7px;
+  }
+
+  .service-icon {
+    font-size: 20px;
+    opacity: 0.5;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 30px);
+    letter-spacing: 1px;
+  }
+
+  .service-desc {
+    font-size: clamp(12px, 1.3vw, 14px);
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .service-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .service-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1.5px solid var(--black);
+    padding: 3px 8px;
+  }
+
+  /* Process */
+  .process-section {
+    padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px);
+    border-top: 2px solid var(--black);
+    background: #EBEBDE;
+  }
+
+  .process-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+    align-items: start;
+  }
+
+  .process-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+  }
+
+  .process-desc {
+    font-size: clamp(13px, 1.4vw, 15px);
+    line-height: 1.7;
+    color: #444;
+    max-width: 380px;
+    align-self: center;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 2px solid var(--black);
+  }
+
+  .process-step {
+    padding: clamp(20px, 3vw, 32px);
+    border-right: 2px solid var(--black);
+  }
+
+  .process-step:last-child { border-right: none; }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 60px);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .step-num.c1 { color: var(--yellow); }
+  .step-num.c2 { color: var(--blue); }
+  .step-num.c3 { color: var(--pink); }
+  .step-num.c4 { color: var(--green); }
+
+  .step-name {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.5vw, 24px);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .step-desc {
+    font-size: clamp(11px, 1.2vw, 13px);
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* ===== ABOUT PAGE ===== */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--black);
+    min-height: 60vh;
+  }
+
+  .about-left {
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 56px);
+    border-right: 2px solid var(--black);
+  }
+
+  .about-name-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .about-desc {
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 1.8;
+    color: #444;
+    max-width: 460px;
+  }
+
+  .about-right {
+    background: #EBEBDE;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 48px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-photo-frame {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3/4;
+    background: var(--black);
+    border: 3px solid var(--black);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .about-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--yellow);
+    border: 2px solid var(--black);
+    border-right: none;
+    border-bottom: none;
+    padding: 10px 16px;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.1vw, 11px);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* Skills ticker */
+  .skills-ticker {
+    background: var(--black);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .skills-inner {
+    display: inline-flex;
+    animation: ticker 18s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--white);
+    gap: 32px;
+    align-items: center;
+  }
+
+  .skills-inner .star { color: var(--yellow); font-size: 14px; }
+
+  /* Career & Skills */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .career-section {
+    padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px);
+    border-right: 2px solid var(--black);
+  }
+
+  .career-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+  }
+
+  .career-item {
+    border: 2px solid var(--black);
+    padding: clamp(16px, 2vw, 24px);
+    margin-bottom: -2px;
+    position: relative;
+    background: var(--white);
+    transition: background 0.15s;
+  }
+
+  .career-item:hover { background: #F0EBE0; }
+  .career-item.active-job { border-left: 4px solid var(--green); }
+
+  .career-present {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--green);
+    border: 1.5px solid var(--black);
+    padding: 2px 8px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .career-role {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.2vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .career-period {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .career-desc {
+    font-size: clamp(11px, 1.2vw, 13px);
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* Skill Stack */
+  .skillstack-section {
+    padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px);
+  }
+
+  .skillstack-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .skill-tag {
+    font-family: var(--font-mono);
+    font-size: clamp(10px, 1.2vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 14px;
+    border: 2px solid var(--black);
+  }
+
+  .skill-tag.yellow { background: var(--yellow); }
+  .skill-tag.orange { background: var(--orange); color: #fff; }
+  .skill-tag.blue { background: var(--blue); color: #fff; }
+  .skill-tag.pink { background: var(--pink); color: #fff; }
+  .skill-tag.green { background: var(--green); }
+
+  .awards-box {
+    border: 2px solid var(--black);
+    padding: clamp(16px, 2vw, 24px);
+  }
+
+  .awards-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: #888;
+  }
+
+  .award-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .award-row:last-child { border-bottom: none; }
+  .award-year { font-weight: 700; }
+
+  /* Core Values */
+  .values-section {
+    background: var(--black);
+    padding: clamp(48px, 6vw, 80px) clamp(16px, 5vw, 60px);
+    border-top: 2px solid var(--black);
+  }
+
+  .values-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 28px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .value-card {
+    border: 2px solid #333;
+    padding: clamp(20px, 3vw, 32px);
+    margin-right: -2px;
+    margin-bottom: -2px;
+  }
+
+  .value-card:nth-child(1) { border-color: var(--yellow); }
+  .value-card:nth-child(2) { border-color: var(--pink); }
+  .value-card:nth-child(3) { border-color: var(--blue); }
+
+  .value-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .value-card:nth-child(1) .value-icon { border-color: var(--yellow); background: rgba(255,229,0,0.1); }
+  .value-card:nth-child(2) .value-icon { border-color: var(--pink); background: rgba(255,45,120,0.1); }
+  .value-card:nth-child(3) .value-icon { border-color: var(--blue); background: rgba(74,108,247,0.1); }
+
+  .value-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .value-card:nth-child(1) .value-name { color: var(--yellow); }
+  .value-card:nth-child(2) .value-name { color: var(--pink); }
+  .value-card:nth-child(3) .value-name { color: var(--blue); }
+
+  .value-desc {
+    font-size: clamp(12px, 1.3vw, 14px);
+    line-height: 1.7;
+    color: #999;
+  }
+
+  /* ===== STATUS BAR (HOME FOOTER) ===== */
+  .status-footer {
+    border-top: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px clamp(16px, 3vw, 32px);
+    background: var(--black);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .status-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--yellow);
+    border: 1.5px solid var(--yellow);
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    /* Nav */
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    /* Home hero */
+    .home-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .home-hero-right {
+      min-height: 300px;
+      border-top: 2px solid var(--black);
+      border-right: none;
+    }
+
+    .home-hero-left { border-right: none; }
+
+    /* Stats */
+    .stats-row { grid-template-columns: 1fr; }
+    .stat-cell { border-right: none; border-bottom: 2px solid var(--black); }
+    .stat-cell:last-child { border-bottom: none; }
+
+    /* Projects grid */
+    .projects-grid, .works-grid { grid-template-columns: 1fr; }
+
+    /* Testimonials */
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+    .testimonial-card {
+      border-right: none;
+      border-bottom: 2px solid var(--black);
+    }
+    .testimonial-card:last-child { border-bottom: none; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* Process */
+    .process-header { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-step:nth-child(2) { border-right: none; }
+    .process-step:nth-child(3) { border-top: 2px solid var(--black); }
+    .process-step:nth-child(4) { border-top: 2px solid var(--black); border-right: none; }
+
+    /* About */
+    .about-split { grid-template-columns: 1fr; }
+    .about-left { border-right: none; }
+    .about-right { min-height: 300px; border-top: 2px solid var(--black); }
+    .about-content { grid-template-columns: 1fr; }
+    .career-section { border-right: none; border-bottom: 2px solid var(--black); }
+    .values-grid { grid-template-columns: 1fr; }
+    .value-card { margin-right: 0; }
+
+    /* Footer */
+    footer {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-links { justify-content: center; }
+  }
+
+  @media (max-width: 480px) {
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: 2px solid var(--black); }
+    .process-step:last-child { border-bottom: none; }
+
+    .cta-buttons { flex-direction: column; align-items: center; }
+
+    .hero-title { font-size: 48px; }
+  }
+
+  @media (min-width: 1200px) {
+    .projects-grid, .works-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">MARGANDA.</a>
+  <div class="nav-links">
+    <a class="nav-link" onclick="showPage('work')" id="nav-work">WORK</a>
+    <a class="nav-link" onclick="showPage('services')" id="nav-services">SERVICES</a>
+    <a class="nav-link" onclick="showPage('about')" id="nav-about">ABOUT</a>
+    <a class="nav-link" onclick="showPage('contact')" id="nav-contact">CONTACT</a>
+  </div>
+  <a class="nav-cta" onclick="showPage('contact')">AVAILABLE FOR HIRE</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" onclick="showPage('work');toggleMenu()">WORK</a>
+  <a class="nav-link" onclick="showPage('services');toggleMenu()">SERVICES</a>
+  <a class="nav-link" onclick="showPage('about');toggleMenu()">ABOUT</a>
+  <a class="nav-link" onclick="showPage('contact');toggleMenu()">CONTACT</a>
+  <a class="nav-cta" onclick="showPage('contact');toggleMenu()">AVAILABLE FOR HIRE</a>
+</div>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+
+  <section class="home-hero">
+    <div class="home-hero-left">
+      <div class="tag-label pink">CREATIVE STRATEGIST</div>
+      <h1 class="hero-title">I DESIGN<br>FOR<br><span class="accent">GROWTH</span></h1>
+      <p class="hero-desc">Helping high-momentum startups and fintech disruptors build raw, high-contrast digital experiences that demand attention and drive conversion.</p>
+      <button class="btn-primary" onclick="showPage('work')">VIEW PROJECTS</button>
+    </div>
+    <div class="home-hero-right">
+      <div class="photo-wrapper">
+        <div class="photo-frame">
+          <!-- GANTI SRC DENGAN PATH FOTO ANDA (lihat settings.json) -->
+          <img src="./photos/hero-photo.jpg" alt="Marganda S.T.S" 
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder">MS</div>
+        </div>
+        <div class="photo-badge">MS / FOUNDER</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>DESIGN</span><span class="dot">•</span>
+      <span>BRANDING</span><span class="dot">•</span>
+      <span>STRATEGY</span><span class="dot">•</span>
+      <span>FINTECH</span><span class="dot">•</span>
+      <span>MOTION</span><span class="dot">•</span>
+      <span>DESIGN</span><span class="dot">•</span>
+      <span>BRANDING</span><span class="dot">•</span>
+      <span>STRATEGY</span><span class="dot">•</span>
+      <span>FINTECH</span><span class="dot">•</span>
+      <span>MOTION</span><span class="dot">•</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-cell">
+      <div class="stat-icon yellow-bg">🚀</div>
+      <div class="stat-num">80+</div>
+      <div class="stat-label">PROJECTS COMPLETED</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon black-bg" style="color:var(--yellow)">🌐</div>
+      <div class="stat-num">12+</div>
+      <div class="stat-label">GLOBAL MARKETS</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-icon yellow-bg">⭐</div>
+      <div class="stat-num">98%</div>
+      <div class="stat-label">CLIENT RETENTION</div>
+    </div>
+  </div>
+
+  <!-- Selected Projects -->
+  <section class="section-pad">
+    <div class="section-header">
+      <h2 class="section-title">SELECTED<br>PROJECTS</h2>
+      <span class="view-all-link" onclick="showPage('work')">VIEW ALL ARCHIVE →</span>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card-home">
+        <div class="project-img">
+          <img src="./photos/project-krypto.jpg" alt="Krypto Vault"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="project-img-placeholder" style="display:none">KRYPTO</div>
+        </div>
+        <div class="project-info">
+          <div>
+            <div class="project-cat-tag green">UX/UI DESIGN</div>
+            <div class="project-name">KRYPTO_VAULT</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card-home">
+        <div class="project-img">
+          <img src="./photos/project-noir.jpg" alt="Noir Studios"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="project-img-placeholder" style="display:none">NOIR</div>
+        </div>
+        <div class="project-info">
+          <div>
+            <div class="project-cat-tag pink">BRANDING</div>
+            <div class="project-name">NOIR_STUDIOS</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card-home">
+        <div class="project-img" style="background:#0A1628">
+          <img src="./photos/project-data.jpg" alt="Data Stream"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="project-img-placeholder" style="display:none">DATA</div>
+        </div>
+        <div class="project-info">
+          <div>
+            <div class="project-cat-tag blue">PRODUCT</div>
+            <div class="project-name">DATA_STREAM</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card-home">
+        <div class="project-img">
+          <img src="./photos/project-urban.jpg" alt="Urban Thread"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="project-img-placeholder" style="display:none">URBAN</div>
+        </div>
+        <div class="project-info">
+          <div>
+            <div class="project-cat-tag orange">UX/UI DESIGN</div>
+            <div class="project-name">URBAN_THREAD</div>
+          </div>
+          <div class="project-arrow">↗</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2 class="cta-title">READY TO<br>BUILD?</h2>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="showPage('contact')">LET'S TALK PROJECTS</button>
+      <button class="btn-secondary" onclick="showPage('work')">VIEW PORTFOLIO</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">MARGANDA.</div>
+    <div class="footer-links">
+      <a href="#">LINKEDIN</a>
+      <a href="#">READCV</a>
+      <a href="#">TWITTER</a>
+      <a href="#">EMAIL</a>
+    </div>
+    <div class="footer-copy">© 2024 MARGANDA S.T.S. ALL RIGHTS RESERVED.</div>
+  </footer>
+
+  <div class="status-footer">
+    <div class="status-text"><div class="status-dot"></div>STATUS: TAKING PROJECTS</div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ===== WORK PAGE ===== -->
+<div class="page" id="page-work">
+
+  <div class="work-hero">
+    <h1 class="page-title">SELECTED<br>WORKS_</h1>
+    <p class="page-desc">A curation of digital products, visual identities, and interactive experiences that push the boundaries of modern aesthetics.</p>
+    <div class="filter-tabs">
+      <button class="filter-tab active">ALL</button>
+      <button class="filter-tab">PRODUCT</button>
+      <button class="filter-tab">UX/UI</button>
+      <button class="filter-tab">BRANDING</button>
+    </div>
+  </div>
+
+  <div class="works-grid">
+    <div class="work-card">
+      <div class="project-img" style="aspect-ratio:4/3">
+        <img src="./photos/project-krypto.jpg" alt="Krypto Vault"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="project-img-placeholder" style="display:none">KRYPTO VAULT</div>
+      </div>
+      <div class="work-card-info">
+        <div>
+          <div class="project-cat-tag green">UX/UI DESIGN</div>
+          <div class="project-name">KRYPTO_VAULT</div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="project-img" style="aspect-ratio:4/3;background:#1a1a1a">
+        <img src="./photos/project-noir.jpg" alt="Noir Studios"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="project-img-placeholder" style="display:none">NOIR STUDIOS</div>
+      </div>
+      <div class="work-card-info">
+        <div>
+          <div class="project-cat-tag pink">BRANDING</div>
+          <div class="project-name">NOIR_STUDIOS</div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="project-img" style="aspect-ratio:4/3;background:#0A1628">
+        <img src="./photos/project-data.jpg" alt="Data Stream"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="project-img-placeholder" style="display:none">DATA STREAM</div>
+      </div>
+      <div class="work-card-info">
+        <div>
+          <div class="project-cat-tag blue">PRODUCT</div>
+          <div class="project-name">DATA_STREAM</div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="project-img" style="aspect-ratio:4/3">
+        <img src="./photos/project-urban.jpg" alt="Urban Thread"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="project-img-placeholder" style="display:none">URBAN THREAD</div>
+      </div>
+      <div class="work-card-info">
+        <div>
+          <div class="project-cat-tag orange">UX/UI DESIGN</div>
+          <div class="project-name">URBAN_THREAD</div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Available marquee -->
+  <div class="available-marquee">
+    <div class="marquee-inner">
+      <span>* AVAILABLE FOR PROJECTS</span>
+      <span>* DESIGN THAT MATTERS</span>
+      <span>* LET'S WORK TOGETHER</span>
+      <span>* AVAILABLE FOR PROJECTS</span>
+      <span>* DESIGN THAT MATTERS</span>
+      <span>* LET'S WORK TOGETHER</span>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="testimonials-section">
+    <h2 class="section-title">FEEDBACK_</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="quote-mark">99</div>
+        <p class="testimonial-text">Marganda's vision transformed our fintech platform into something truly disruptive. The brutalist approach made us stand out in a sea of soft gradients.</p>
+        <div class="testimonial-name">MARCUS REED</div>
+        <div class="testimonial-role">CEO, BLOCK_FLOW</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">99</div>
+        <p class="testimonial-text">Execution was flawless. The attention to structural detail and the bold use of color gave our brand a new life.</p>
+        <div class="testimonial-name">ELARA VANCE</div>
+        <div class="testimonial-role">FOUNDER, NOIR_STUDIOS</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">99</div>
+        <p class="testimonial-text">Rare to find a designer who understands both rigid systems and creative chaos. The results speak for themselves.</p>
+        <div class="testimonial-name">JOSHUA TRENT</div>
+        <div class="testimonial-role">HEAD OF PRODUCT, VESTA</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">MARGANDA.</div>
+    <div class="footer-links">
+      <a href="#">LINKEDIN</a><a href="#">READCV</a><a href="#">TWITTER</a><a href="#">EMAIL</a>
+    </div>
+    <div class="footer-copy">© 2024 MARGANDA S.T.S. ALL RIGHTS RESERVED.</div>
+  </footer>
+</div><!-- /page-work -->
+
+<!-- ===== SERVICES PAGE ===== -->
+<div class="page" id="page-services">
+
+  <div class="services-hero">
+    <h1 class="page-title">SOLUTIONS<br><span class="services-title-highlight">THAT SCALE.</span></h1>
+    <p class="services-subtitle">I help fast-growing startups and established brands build digital products that aren't just beautiful—they're engineered for conversion and longevity.</p>
+  </div>
+
+  <!-- Services ticker -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>UX/UI</span><span class="dot">•</span>
+      <span>DESIGN SYSTEMS</span><span class="dot">•</span>
+      <span>USER RESEARCH</span><span class="dot">•</span>
+      <span>MENTORING</span><span class="dot">•</span>
+      <span>GROWTH DESIGN</span><span class="dot">•</span>
+      <span>UX/UI</span><span class="dot">•</span>
+      <span>DESIGN SYSTEMS</span><span class="dot">•</span>
+      <span>USER RESEARCH</span><span class="dot">•</span>
+    </div>
+  </div>
+
+  <!-- Services grid -->
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">01</div>
+        <div class="service-icon">◱△</div>
+      </div>
+      <div class="service-name">PRODUCT DESIGN</div>
+      <p class="service-desc">End-to-end product strategy and design, transforming complex ideas into intuitive digital experiences.</p>
+      <div class="service-tags">
+        <span class="service-tag">STRATEGY</span>
+        <span class="service-tag">PROTOTYPING</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">02</div>
+        <div class="service-icon">✏</div>
+      </div>
+      <div class="service-name">UX/UI</div>
+      <p class="service-desc">Crafting pixel-perfect interfaces with a focus on usability, accessibility, and high aesthetic standards.</p>
+      <div class="service-tags">
+        <span class="service-tag">INTERFACE</span>
+        <span class="service-tag">USABILITY</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">03</div>
+        <div class="service-icon">🎓</div>
+      </div>
+      <div class="service-name">MENTORING</div>
+      <p class="service-desc">Empowering designers and founders through 1:1 sessions focused on career growth and product strategy.</p>
+      <div class="service-tags">
+        <span class="service-tag">COACHING</span>
+        <span class="service-tag">WORKSHOPS</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">04</div>
+        <div class="service-icon">↗</div>
+      </div>
+      <div class="service-name">GROWTH DESIGN</div>
+      <p class="service-desc">Design that drives metrics. Focus on onboarding, conversion funnels, and retention mechanics.</p>
+      <div class="service-tags">
+        <span class="service-tag">FUNNELS</span>
+        <span class="service-tag">RETENTION</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">05</div>
+        <div class="service-icon">⊞</div>
+      </div>
+      <div class="service-name">DESIGN SYSTEM</div>
+      <p class="service-desc">Building scalable design languages and component libraries for cohesive multi-platform experiences.</p>
+      <div class="service-tags">
+        <span class="service-tag">SCALABILITY</span>
+        <span class="service-tag">TOKENS</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <div class="service-num">06</div>
+        <div class="service-icon">🔍</div>
+      </div>
+      <div class="service-name">USER RESEARCH</div>
+      <p class="service-desc">Uncovering deep user insights through qualitative and quantitative research methodologies.</p>
+      <div class="service-tags">
+        <span class="service-tag">TESTING</span>
+        <span class="service-tag">INTERVIEWS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="process-section">
+    <div class="process-header">
+      <div>
+        <div class="tag-label yellow">WORKFLOW</div>
+        <h2 class="process-title">THE<br>PROCESS.</h2>
+      </div>
+      <p class="process-desc">A rigorous framework designed to eliminate guesswork and deliver high-impact results every single time.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num c1">01.</div>
+        <div class="step-name">DISCOVERY</div>
+        <p class="step-desc">We dive deep into your business goals, user needs, and market gaps to find the "why".</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num c2">02.</div>
+        <div class="step-name">DEFINE</div>
+        <p class="step-desc">Information architecture, user flows, and wireframes to map out the perfect path forward.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num c3">03.</div>
+        <div class="step-name">DESIGN</div>
+        <p class="step-desc">High-fidelity interface design and rapid prototyping to bring the vision to life.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num c4">04.</div>
+        <div class="step-name">DELIVER</div>
+        <p class="step-desc">Developer handoff, assets documentation, and post-launch optimization for success.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2 class="cta-title">READY TO<br>BUILD?</h2>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="showPage('contact')">LET'S TALK PROJECTS</button>
+      <button class="btn-secondary" onclick="showPage('work')">VIEW PORTFOLIO</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">MARGANDA.</div>
+    <div class="footer-links">
+      <a href="#">LINKEDIN</a><a href="#">READCV</a><a href="#">TWITTER</a><a href="#">EMAIL</a>
+    </div>
+    <div class="footer-copy">© 2024 MARGANDA S.T.S. ALL RIGHTS RESERVED.</div>
+  </footer>
+</div><!-- /page-services -->
+
+<!-- ===== ABOUT PAGE ===== -->
+<div class="page" id="page-about">
+
+  <div class="about-split">
+    <div class="about-left">
+      <div class="tag-label pink">ABOUT THE CREATIVE</div>
+      <div class="about-name-title">STRATEGIC<br>DESIGNER</div>
+      <p class="about-desc">I bridge the gap between human needs and business goals through high-impact visual systems and uncompromising neo-brutalist aesthetics. Based in Indonesia, working globally.</p>
+    </div>
+    <div class="about-right">
+      <div class="about-photo-frame">
+        <!-- GANTI SRC DENGAN PATH FOTO ABOUT ANDA (lihat settings.json) -->
+        <img src="./photos/about-photo.jpg" alt="Marganda S.T.S"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="photo-placeholder" style="display:none;font-size:40px">MS</div>
+      </div>
+      <div class="about-badge">MARGANDA S.T.S / FOUNDER</div>
+    </div>
+  </div>
+
+  <!-- Skills ticker -->
+  <div class="skills-ticker">
+    <div class="skills-inner">
+      <span class="star">☆</span> VISUAL IDENTITY
+      <span class="star">☆</span> UI ENGINEERING
+      <span class="star">☆</span> UX AUDITS
+      <span class="star">☆</span> PRODUCT STRATEGY
+      <span class="star">☆</span> VISUAL IDENTITY
+      <span class="star">☆</span> UI ENGINEERING
+      <span class="star">☆</span> UX AUDITS
+      <span class="star">☆</span> PRODUCT STRATEGY
+    </div>
+  </div>
+
+  <!-- Career + Skills -->
+  <div class="about-content">
+    <div class="career-section">
+      <div class="career-title">CAREER TIMELINE</div>
+
+      <div class="career-item active-job">
+        <div class="career-present">PRESENT</div>
+        <div class="career-role">SR. PRODUCT DESIGNER — TECHCORP</div>
+        <div class="career-period">2021 — PRESENT</div>
+        <p class="career-desc">Leading the design systems team for enterprise-scale fintech solutions. Managed a team of 4 designers and synchronized UI patterns across 12 product verticals.</p>
+      </div>
+
+      <div class="career-item">
+        <div class="career-role">LEAD DESIGNER — LIFTYZ</div>
+        <div class="career-period">2018 — 2021</div>
+        <p class="career-desc">Headed the creative direction for a hyper-growth logistics startup. Scaled the brand from zero to Series B, overseeing all digital touchpoints.</p>
+      </div>
+
+      <div class="career-item">
+        <div class="career-role">UI DESIGNER — GDS</div>
+        <div class="career-period">2015 — 2018</div>
+        <p class="career-desc">Developed accessibility-first design patterns for public sector services. Focused on high-legibility typography and lean semantic HTML integration.</p>
+      </div>
+    </div>
+
+    <div class="skillstack-section">
+      <div class="skillstack-title">SKILL STACK</div>
+
+      <div class="skill-tags">
+        <span class="skill-tag yellow">FIGMA MASTERY</span>
+        <span class="skill-tag orange">REACT / TAILWIND</span>
+        <span class="skill-tag">ART DIRECTION</span>
+        <span class="skill-tag blue">MOTION DESIGN</span>
+        <span class="skill-tag">USER RESEARCH</span>
+        <span class="skill-tag pink">TYPE DESIGN</span>
+        <span class="skill-tag">PROTOTYPING</span>
+        <span class="skill-tag green">BRANDING</span>
+      </div>
+
+      <div class="awards-box">
+        <div class="awards-title">AWARDS</div>
+        <div class="award-row">
+          <span>AWWWARDS SOTD</span>
+          <span class="award-year">2023</span>
+        </div>
+        <div class="award-row">
+          <span>CSSDA INNOVATION</span>
+          <span class="award-year">2022</span>
+        </div>
+        <div class="award-row">
+          <span>FWA OF THE DAY</span>
+          <span class="award-year">2021</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Values -->
+  <div class="values-section">
+    <div class="values-label">CORE VALUES</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <div class="value-name">RADICAL CLARITY</div>
+        <p class="value-desc">Design should never be a mystery. I value functional transparency and structural honesty above decorative trends.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✦</div>
+        <div class="value-name">BOLD INTENTION</div>
+        <p class="value-desc">Every pixel and point of typography serves a purpose. High contrast isn't just a style; it's a statement of hierarchy.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⬡</div>
+        <div class="value-name">TECH EMPATHY</div>
+        <p class="value-desc">Understanding the medium is key to mastering the message. I design with deep respect for the underlying code and performance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collab CTA -->
+  <div style="background:var(--yellow);padding:clamp(48px,6vw,80px) clamp(16px,5vw,60px);text-align:center;border-top:2px solid var(--black)">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:3px;margin-bottom:8px;opacity:0.6">WANT TO</div>
+    <div style="font-family:var(--font-mono);font-size:14px;font-weight:700;letter-spacing:3px;margin-bottom:32px">COLLABORATE?</div>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="showPage('contact')">SEND AN EMAIL</button>
+      <button class="btn-secondary" onclick="showPage('services')">VIEW SERVICES</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">MARGANDA.</div>
+    <div class="footer-links">
+      <a href="#">LINKEDIN</a><a href="#">READCV</a><a href="#">TWITTER</a><a href="#">EMAIL</a>
+    </div>
+    <div class="footer-copy">© 2024 MARGANDA S.T.S. ALL RIGHTS RESERVED.</div>
+  </footer>
+</div><!-- /page-about -->
+
+<!-- ===== CONTACT PAGE ===== -->
+<div class="page" id="page-contact">
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);border-bottom:2px solid var(--black)" class="contact-grid">
+    <div style="padding:clamp(40px,6vw,80px) clamp(24px,4vw,56px);border-right:2px solid var(--black)">
+      <div class="tag-label yellow">GET IN TOUCH</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(40px,7vw,80px);line-height:0.95;letter-spacing:2px;margin-bottom:24px">LET'S<br>BUILD<br>SOMETHING.</h1>
+      <p style="font-size:clamp(13px,1.4vw,16px);line-height:1.8;color:#444;max-width:380px;margin-bottom:40px">Ready to create something disruptive? Drop a message and let's explore how design can move your business forward.</p>
+
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:#888">EMAIL</div>
+        <a href="mailto:hello@marganda.com" style="font-family:var(--font-display);font-size:clamp(18px,3vw,28px);letter-spacing:1px;color:var(--black);text-decoration:none">hello@marganda.com</a>
+      </div>
+
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="#" style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:2px;border:2px solid var(--black);padding:10px 18px;text-decoration:none;color:var(--black);transition:all 0.15s" onmouseover="this.style.background='var(--black)';this.style.color='var(--white)'" onmouseout="this.style.background='transparent';this.style.color='var(--black)'">LINKEDIN</a>
+        <a href="#" style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:2px;border:2px solid var(--black);padding:10px 18px;text-decoration:none;color:var(--black);transition:all 0.15s" onmouseover="this.style.background='var(--black)';this.style.color='var(--white)'" onmouseout="this.style.background='transparent';this.style.color='var(--black)'">TWITTER</a>
+        <a href="#" style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:2px;border:2px solid var(--black);padding:10px 18px;text-decoration:none;color:var(--black);transition:all 0.15s" onmouseover="this.style.background='var(--black)';this.style.color='var(--white)'" onmouseout="this.style.background='transparent';this.style.color='var(--black)'">READCV</a>
+      </div>
+    </div>
+
+    <div style="padding:clamp(40px,6vw,80px) clamp(24px,4vw,56px);background:#EBEBDE;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:3px;margin-bottom:32px">SEND A MESSAGE</div>
+
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <label style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;display:block;margin-bottom:8px">YOUR NAME</label>
+          <input type="text" placeholder="John Doe" style="width:100%;font-family:var(--font-mono);font-size:13px;border:2px solid var(--black);padding:12px 16px;background:var(--white);outline:none">
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;display:block;margin-bottom:8px">EMAIL ADDRESS</label>
+          <input type="email" placeholder="hello@company.com" style="width:100%;font-family:var(--font-mono);font-size:13px;border:2px solid var(--black);padding:12px 16px;background:var(--white);outline:none">
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;display:block;margin-bottom:8px">PROJECT TYPE</label>
+          <select style="width:100%;font-family:var(--font-mono);font-size:13px;border:2px solid var(--black);padding:12px 16px;background:var(--white);outline:none;cursor:pointer">
+            <option>UX/UI Design</option>
+            <option>Product Design</option>
+            <option>Design System</option>
+            <option>Branding</option>
+            <option>Mentoring</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:2px;display:block;margin-bottom:8px">MESSAGE</label>
+          <textarea rows="4" placeholder="Tell me about your project..." style="width:100%;font-family:var(--font-mono);font-size:13px;border:2px solid var(--black);padding:12px 16px;background:var(--white);outline:none;resize:vertical"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center">SEND MESSAGE →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">MARGANDA.</div>
+    <div class="footer-links">
+      <a href="#">LINKEDIN</a><a href="#">READCV</a><a href="#">TWITTER</a><a href="#">EMAIL</a>
+    </div>
+    <div class="footer-copy">© 2024 MARGANDA S.T.S. ALL RIGHTS RESERVED.</div>
+  </footer>
+</div><!-- /page-contact -->
+
+<script>
+// Load settings from settings.json (jika dijalankan di server)
+// Untuk penggunaan lokal, foto langsung diakses via path di settings.json
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// Filter tabs
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+// Contact grid responsive
+function adjustContactGrid() {
+  const grid = document.querySelector('.contact-grid');
+  if (grid) {
+    if (window.innerWidth <= 768) {
+      grid.style.gridTemplateColumns = '1fr';
+    } else {
+      grid.style.gridTemplateColumns = '1fr 1fr';
+    }
+    const rightPanel = grid.children[1];
+    if (rightPanel) {
+      rightPanel.style.borderLeft = window.innerWidth <= 768 ? 'none' : '';
+      rightPanel.style.borderTop = window.innerWidth <= 768 ? '2px solid var(--black)' : 'none';
+      rightPanel.style.borderRight = 'none';
+    }
+  }
+}
+
+window.addEventListener('resize', adjustContactGrid);
+adjustContactGrid();
+</script>
+</body>
+</html>

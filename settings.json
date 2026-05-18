@@ -1,0 +1,175 @@
+{
+  "personal": {
+    "name": "MARGANDA S.T.S",
+    "name_short": "MARGANDA.",
+    "initials": "MS",
+    "title": "CREATIVE STRATEGIST",
+    "subtitle": "Strategic Designer",
+    "tagline": "I DESIGN FOR GROWTH",
+    "description": "Helping high-momentum startups and fintech disruptors build raw, high-contrast digital experiences that demand attention and drive conversion.",
+    "location": "Based in Indonesia, working globally.",
+    "status": "STATUS: TAKING PROJECTS"
+  },
+  "photos": {
+    "hero_photo": {
+      "path": "./photos/hero-photo.jpg",
+      "alt": "Marganda S.T.S - Creative Strategist",
+      "note": "Ganti dengan foto utama Anda (ukuran ideal: 600x700px, format JPG/PNG/WEBP)"
+    },
+    "about_photo": {
+      "path": "./photos/about-photo.jpg",
+      "alt": "Marganda S.T.S - Founder",
+      "note": "Foto untuk halaman About (ukuran ideal: 500x600px, format JPG/PNG/WEBP)"
+    }
+  },
+  "stats": {
+    "projects_completed": "80+",
+    "global_markets": "12+",
+    "client_retention": "98%"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/marganda",
+    "readcv": "https://read.cv/marganda",
+    "twitter": "https://twitter.com/marganda",
+    "email": "mailto:hello@marganda.com"
+  },
+  "services": [
+    {
+      "id": "01",
+      "icon": "◱△",
+      "title": "PRODUCT DESIGN",
+      "description": "End-to-end product strategy and design, transforming complex ideas into intuitive digital experiences.",
+      "tags": ["STRATEGY", "PROTOTYPING"]
+    },
+    {
+      "id": "02",
+      "icon": "✏",
+      "title": "UX/UI",
+      "description": "Crafting pixel-perfect interfaces with a focus on usability, accessibility, and high aesthetic standards.",
+      "tags": ["INTERFACE", "USABILITY"]
+    },
+    {
+      "id": "03",
+      "icon": "🎓",
+      "title": "MENTORING",
+      "description": "Empowering designers and founders through 1:1 sessions focused on career growth and product strategy.",
+      "tags": ["COACHING", "WORKSHOPS"]
+    },
+    {
+      "id": "04",
+      "icon": "↗",
+      "title": "GROWTH DESIGN",
+      "description": "Design that drives metrics. Focus on onboarding, conversion funnels, and retention mechanics.",
+      "tags": ["FUNNELS", "RETENTION"]
+    },
+    {
+      "id": "05",
+      "icon": "⊞",
+      "title": "DESIGN SYSTEM",
+      "description": "Building scalable design languages and component libraries for cohesive multi-platform experiences.",
+      "tags": ["SCALABILITY", "TOKENS"]
+    },
+    {
+      "id": "06",
+      "icon": "🔍",
+      "title": "USER RESEARCH",
+      "description": "Uncovering deep user insights through qualitative and quantitative research methodologies.",
+      "tags": ["TESTING", "INTERVIEWS"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "krypto_vault",
+      "category": "UX/UI DESIGN",
+      "category_color": "#00FF87",
+      "title": "KRYPTO_VAULT",
+      "image": "./photos/project-krypto.jpg",
+      "note": "Foto project 1 (ukuran ideal: 380x300px)"
+    },
+    {
+      "id": "noir_studios",
+      "category": "BRANDING",
+      "category_color": "#FF2D78",
+      "title": "NOIR_STUDIOS",
+      "image": "./photos/project-noir.jpg",
+      "note": "Foto project 2 (ukuran ideal: 380x300px)"
+    },
+    {
+      "id": "data_stream",
+      "category": "PRODUCT",
+      "category_color": "#4A6CF7",
+      "title": "DATA_STREAM",
+      "image": "./photos/project-data.jpg",
+      "note": "Foto project 3 (ukuran ideal: 380x300px)"
+    },
+    {
+      "id": "urban_thread",
+      "category": "UX/UI DESIGN",
+      "category_color": "#FF6B35",
+      "title": "URBAN_THREAD",
+      "image": "./photos/project-urban.jpg",
+      "note": "Foto project 4 (ukuran ideal: 380x300px)"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Marganda's vision transformed our fintech platform into something truly disruptive. The brutalist approach made us stand out in a sea of soft gradients.",
+      "name": "MARCUS REED",
+      "role": "CEO, BLOCK_FLOW"
+    },
+    {
+      "quote": "Execution was flawless. The attention to structural detail and the bold use of color gave our brand a new life.",
+      "name": "ELARA VANCE",
+      "role": "FOUNDER, NOIR_STUDIOS"
+    },
+    {
+      "quote": "Rare to find a designer who understands both rigid systems and creative chaos. The results speak for themselves.",
+      "name": "JOSHUA TRENT",
+      "role": "HEAD OF PRODUCT, VESTA"
+    }
+  ],
+  "skills": [
+    { "name": "FIGMA MASTERY", "color": "#FFE500", "text_color": "#000000" },
+    { "name": "REACT / TAILWIND", "color": "#FF6B35", "text_color": "#FFFFFF" },
+    { "name": "ART DIRECTION", "color": "transparent", "text_color": "#000000" },
+    { "name": "MOTION DESIGN", "color": "#4A6CF7", "text_color": "#FFFFFF" },
+    { "name": "USER RESEARCH", "color": "transparent", "text_color": "#000000" },
+    { "name": "TYPE DESIGN", "color": "#FF2D78", "text_color": "#FFFFFF" },
+    { "name": "PROTOTYPING", "color": "transparent", "text_color": "#000000" },
+    { "name": "BRANDING", "color": "#00FF87", "text_color": "#000000" }
+  ],
+  "career": [
+    {
+      "role": "SR. PRODUCT DESIGNER — TECHCORP",
+      "period": "2021 — PRESENT",
+      "current": true,
+      "description": "Leading the design systems team for enterprise-scale fintech solutions. Managed a team of 4 designers and synchronized UI patterns across 12 product verticals."
+    },
+    {
+      "role": "LEAD DESIGNER — LIFTYZ",
+      "period": "2018 — 2021",
+      "current": false,
+      "description": "Headed the creative direction for a hyper-growth logistics startup. Scaled the brand from zero to Series B, overseeing all digital touchpoints."
+    },
+    {
+      "role": "UI DESIGNER — GDS",
+      "period": "2015 — 2018",
+      "current": false,
+      "description": "Developed accessibility-first design patterns for public sector services. Focused on high-legibility typography and lean semantic HTML integration."
+    }
+  ],
+  "awards": [
+    { "name": "AWWWARDS SOTD", "year": "2023" },
+    { "name": "CSSDA INNOVATION", "year": "2022" },
+    { "name": "FWA OF THE DAY", "year": "2021" }
+  ],
+  "instructions": {
+    "cara_ganti_foto": [
+      "1. Buat folder bernama 'photos' di direktori yang sama dengan file HTML",
+      "2. Letakkan foto Anda dengan nama file sesuai yang tertera di settings.json",
+      "3. Ukuran foto sudah tercantum di masing-masing field 'note'",
+      "4. Format yang didukung: JPG, PNG, WEBP",
+      "5. Jika nama file berbeda, ubah path di settings.json dan di file HTML"
+    ]
+  }
+}
